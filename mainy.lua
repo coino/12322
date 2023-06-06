@@ -157,6 +157,7 @@ function farmFruits()
     end
 end
 
+
 function sendMail()
 
  mailing = true
@@ -212,5 +213,3 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/coino/12322/main/main
         end
     end)()
 end
-
-
