@@ -191,25 +191,27 @@ do -- Main
 mailing = true
 sendMail()
 writefile("gems.txt", "0")
-end
-            if getOrangeCount() < Settings["Minimum Oranges"] then
-                repeat
-                farmFruits()
-                    task.wait(0.04)
-                until getOrangeCount() >= Settings["Maximum Oranges"]
-            else
-        if WorldCmds.HasLoaded() and WorldCmds.Get() ~= "Diamond Mine" then
-            WorldCmds.Load("Diamond Mine")
-        end
-task.wait(2)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(8625, -14, 3015)
-
-sendMail()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/coino/12322/main/mainy.lua"))()
-                repeat
-                    task.wait(60)
-                until getOrangeCount() < Settings["Minimum Oranges"]
+    if getOrangeCount() < Settings["Minimum Oranges"] then
+                    farmFruits()
+                    task.wait(Settings["Farm Speed"] or 0.04)
+                if getOrangeCount() >= Settings["Maximum Oranges"] then
+              continue
+                end
+                end
+           
+            if WorldCmds.HasLoaded() and WorldCmds.Get() ~= "Diamond Mine" then
+                WorldCmds.Load("Diamond Mine")
             end
-        end
+            
+            if Settings["Mystic Mine"] then
+                repeat
+                    task.wait(Settings["Farm Speed"])
+                    farm(CFrame.new(9055, -14, 2368), "Mystic Mine")
+                until mysticEmpty
+            end
+  
+
+end
     end)()
+
 end
